@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 end 
   
-  get '/user/:slug' do
+  get '/users/:slug' do
     if logged_in?
     @user = User.find_by_slug(params[:slug])
      @tweets = @user.tweets
@@ -42,7 +42,7 @@ end
       @user = User.find_by(:username => params[:username])
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        redirect to "/user/#{@user.slug}"
+        redirect to "/users/#{@user.slug}"
       else
         redirect '/login'
       end
