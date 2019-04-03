@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 end 
   
   get '/user/:slug' do
-    
+    if logged_in?
     @user = User.find_by_slug(params[:slug])
      
     @user = current_user
