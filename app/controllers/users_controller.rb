@@ -50,9 +50,11 @@ end
   end
   
   get '/logout' do
-    if logged_in?
+    if !logged_in?
+      redirect to "/login"
+    else 
     session.clear
-    redirect to "/users/login"
+    redirect to "/login"
   end 
   end
 end
