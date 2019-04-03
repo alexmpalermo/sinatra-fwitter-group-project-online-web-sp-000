@@ -24,6 +24,7 @@ end
   else 
     redirect to "/login"
   end
+end 
   
   post '/tweets' do 
     @tweet = Tweet.create(params[:tweet])
