@@ -27,6 +27,7 @@ end
 end 
   
   post '/tweets' do 
+    @tweet.user = current_user
     @tweet = Tweet.create(params[:tweet])
     
     redirect to "/tweets/#{@tweet.id}"
