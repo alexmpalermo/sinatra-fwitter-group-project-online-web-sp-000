@@ -58,7 +58,7 @@ end
   delete '/tweets/:id/delete' do 
      
     @tweet = Tweet.find_by_id(params[:id])
-    @tweet.clear
+    @tweet.destroy
     redirect to "/tweets"
   end
 end
