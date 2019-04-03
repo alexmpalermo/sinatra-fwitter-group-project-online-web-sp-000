@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   
   get '/signup' do 
     if logged_in?
-      redirect to "/tweets"
+      @user = current_user
+      redirect to "/user/#{@user.slug}"
     else 
       erb :'/users/create_user'
   end 
