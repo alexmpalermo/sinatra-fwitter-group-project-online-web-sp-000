@@ -42,7 +42,7 @@ end
       @user = User.find_by(:username => params[:username])
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        redirect to "/users/#{@user.slug}"
+        redirect to "/tweets"
       else
         redirect '/login'
       end
