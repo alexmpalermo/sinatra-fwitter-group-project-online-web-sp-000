@@ -1,7 +1,7 @@
 <h1>Welcome, <%= @user.username %></h1>
 
 <% @user.tweets.each do |t| %>
-<li><a href="/tweets/<%= t.id %>"><%= t.content %></a></li>
+<a href="/tweets/<%= t.id %>"><%= t.content %></a>
 <% end %>
 
 <form action="/logout" method="POST">
