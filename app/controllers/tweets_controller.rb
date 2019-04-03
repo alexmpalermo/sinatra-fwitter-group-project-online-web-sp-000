@@ -50,7 +50,7 @@ end
     
     if params[:content] == ""
       
-    @tweet = Tweet.find_by_id(params[:id])
+    
     @tweet.update(content: params[:content])
     redirect to "/tweets/#{@tweet.id}"
   else 
