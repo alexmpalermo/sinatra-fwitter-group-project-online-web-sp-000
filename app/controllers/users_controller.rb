@@ -37,6 +37,9 @@ end
   end
   
   post '/login' do 
+    if logged_in?
+      redirect to "/tweets"
+    end 
     if params[:username] != "" &&  params[:password] != "" 
       @user = User.find_by(:username => params[:username])
       if @user && @user.authenticate(params[:password])
