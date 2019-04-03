@@ -47,10 +47,8 @@ end
 end 
   
   patch '/tweets/:id' do
-    
-    if params[:content] == ""
-      
-    
+    @tweet = Tweet.find_by_id(params[:id])
+    if params[:content] != ""
     @tweet.update(content: params[:content])
     redirect to "/tweets/#{@tweet.id}"
   else 
