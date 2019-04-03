@@ -27,10 +27,14 @@ end
 end 
   
   post '/tweets' do 
+    if params[:content] != ""
     @tweet = Tweet.create(content: params[:content])
     @tweet.user = current_user
     redirect to "/tweets/#{@tweet.id}"
+  else 
+    redirect to "/tweets/new"
   end
+end 
   
   get '/tweets/:id/edit' do
     if logged_in?
