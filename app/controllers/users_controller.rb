@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
   
   get '/login' do 
-     if !logged_in?
+     if logged_in?
      erb :'/users/login'
     else
      redirect to "/tweets"
@@ -37,9 +37,6 @@ end
   end
   
   post '/login' do 
-    if logged_in?
-      redirect to "/tweets"
-    end 
     if params[:username] != "" &&  params[:password] != "" 
       @user = User.find_by(:username => params[:username])
       if @user && @user.authenticate(params[:password])
