@@ -47,6 +47,7 @@ end
 end 
   
   patch '/tweets/:id' do
+    
     if params[:content] == ""
       
     @tweet = Tweet.find_by_id(params[:id])
