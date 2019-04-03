@@ -42,10 +42,14 @@ end
 end 
   
   patch '/tweets/:id' do
+    if params[:content] != ""
     @tweet = Tweet.find_by_id(params[:id])
     @tweet.update(params[:tweet])
     redirect to "/tweets/#{@tweet.id}"
+  else 
+    redirect to "tweets/#{@tweet.id}/edit"
   end
+end 
   
   delete '/tweets/:id/delete' do 
      
