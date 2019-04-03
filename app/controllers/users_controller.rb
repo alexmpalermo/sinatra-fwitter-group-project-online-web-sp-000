@@ -52,9 +52,11 @@ end
   end
   
   get '/logout' do
-    
-    session.clear
-    redirect to "/login"
-  
-  end
+    if logged_in?
+      session.clear
+      redirect to "/login"
+    else
+      redirect to "/"
+      end
+    end
 end
