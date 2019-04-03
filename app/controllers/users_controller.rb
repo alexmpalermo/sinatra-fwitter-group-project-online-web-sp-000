@@ -52,11 +52,9 @@ end
   end
   
   get '/logout' do
-    if logged_in?
+    
     session.clear
     redirect to "/login"
-  else 
-    redirect to "/tweets"
-  end 
+  
   end
 end
