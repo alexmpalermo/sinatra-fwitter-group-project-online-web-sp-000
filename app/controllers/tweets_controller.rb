@@ -47,7 +47,7 @@ end
     @tweet.update(params[:tweet])
     redirect to "/tweets/#{@tweet.id}"
   else 
-    redirect to "tweets/#{@tweet.id}/edit"
+    redirect to "/tweets/#{@tweet.id}/edit"
   end
 end 
   
