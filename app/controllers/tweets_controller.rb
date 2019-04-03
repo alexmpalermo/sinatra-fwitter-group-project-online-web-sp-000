@@ -29,7 +29,8 @@ end
   post '/tweets' do 
     if params[:content] != ""
     @tweet = Tweet.create(content: params[:content])
-    
+    @user = 
+    session[:user_id] = @user.id
     @tweet.user = current_user
     
     redirect to "/tweets/#{@tweet.id}"
